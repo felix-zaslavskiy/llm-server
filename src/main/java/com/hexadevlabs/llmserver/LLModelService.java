@@ -4,11 +4,14 @@ import com.hexadevlabs.gpt4all.LLModel;
 import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Map;
 
 @Service
 public class LLModelService {
+
+    public static class GenerationOptions {
+        // NULL means use default.
+        Integer maxTokens;
+    }
 
     // Inject LLModel instance (assuming it's a bean or creates one)
     private final LLModel llmodel;
@@ -17,7 +20,7 @@ public class LLModelService {
         this.llmodel = llmodel;
     }
 
-    public String generateText(String prompt, boolean justPrompt) {
+    public String generateText(String prompt, boolean justPrompt, GenerationOptions generationOptions) {
 
         String fullPrompt;
         if(!justPrompt){
