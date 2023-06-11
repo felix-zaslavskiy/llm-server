@@ -15,12 +15,17 @@ public class LLModelController {
 
     @PostMapping("/generate-text")
     public String generateText(@RequestBody String prompt) {
-        return llModelService.generateText(prompt);
+        return llModelService.generateText(prompt, false);
+    }
+
+    @PostMapping("/generate-text-using-instruction-following-template")
+    public String generateText2(@RequestBody String prompt) {
+        return llModelService.generateText(prompt, true);
     }
 
     @PostMapping("/handle-chat")
     public String handleChat(@RequestBody String input) {
        //  return llModelService.handleChat(input);
-        return "";
+        return "Not supported";
     }
 }

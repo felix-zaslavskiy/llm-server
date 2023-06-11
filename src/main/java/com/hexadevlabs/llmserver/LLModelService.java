@@ -17,9 +17,15 @@ public class LLModelService {
         this.llmodel = llmodel;
     }
 
-    public String generateText(String prompt) {
+    public String generateText(String prompt, boolean justPrompt) {
 
-        String fullPrompt = "### Human:\n" + prompt + "\n### Assistant:";
+        String fullPrompt;
+        if(!justPrompt){
+            fullPrompt="### Human:\n" + prompt + "\n### Assistant:";
+        } else {
+            fullPrompt = prompt;
+        }
+
         LLModel.GenerationConfig config =
                 LLModel.config()
                         .withNPredict(4096)

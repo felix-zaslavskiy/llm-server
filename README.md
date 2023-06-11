@@ -16,6 +16,11 @@ Some ideas on what this may be used for:
 - Mange the LLM resource based on various factors. Rate limits and such things.
 - Provide organization a central point of how LLMs are being utilized by different applications.
 
+## Getting Started
+After starting up the web server you may navigate for example to the 
+api endpoint to try things out http://localhost:8080/swagger-ui/index.htm
+
+
 ## Technical issues.
 The server currently loads one main model that. Typically,this may be the best performing model for whatever usecase 
 an organization may be using this server for.
@@ -24,3 +29,5 @@ It is not totally clear if multiple models should be supported.
 
 It is not clear how memory usage is impacted when multiple users will be using the LLM.
 
+## Dev notes:
+Swagger and OpenAPI docs here https://springdoc.org/v2/#getting-started
