@@ -19,6 +19,8 @@ Some ideas on what this may be used for:
 ## Technical issues.
 The server currently loads one main model that. Typically,this may be the best performing model for whatever usecase 
 an organization may be using this server for.
-It is not totally clear if multiple models should be supported. 
+
+It is not totally clear if multiple models should be supported.
+
 It is not clear how memory usage is impacted when multiple users will be using the LLM.
 
