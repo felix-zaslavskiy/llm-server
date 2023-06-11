@@ -17,13 +17,20 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+		<!-- initially disabled until time to configure
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+		-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.hexadevlabs</groupId>
+			<artifactId>gpt4all-java-binding</artifactId>
+			<version>1.1.2</version>
 		</dependency>
 
 		<dependency>
