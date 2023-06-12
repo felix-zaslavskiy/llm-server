@@ -8,7 +8,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class LLModelService {
 
+    private boolean llmDebugMode;
+
     public static class GenerationOptions {
+        public Float temperature;
+        public Boolean useInstructionTemplate;
+
         // NULL means use default.
         Integer maxTokens;
     }
@@ -20,22 +25,38 @@ public class LLModelService {
         this.llmodel = llmodel;
     }
 
-    public String generateText(String prompt, boolean justPrompt, GenerationOptions generationOptions) {
+    public void setLlmDebugMode(boolean llmDebugMode){
+        this.llmDebugMode = llmDebugMode;
+    }
+
+    public String generateText(String prompt, GenerationOptions generationOptions) {
 
         String fullPrompt;
-        if(!justPrompt){
+        if(generationOptions.useInstructionTemplate){
             fullPrompt="### Human:\n" + prompt + "\n### Assistant:";
         } else {
             fullPrompt = prompt;
         }
 
-        LLModel.GenerationConfig config =
+        LLModel.GenerationConfig.Builder builder =
                 LLModel.config()
-                        .withNPredict(4096)
-                        .withRepeatLastN(64)
-                        .build();
+                        .withNPredict(generationOptions.maxTokens!=null ? generationOptions.maxTokens : 200)
+                        .withRepeatLastN(64);
 
-        return llmodel.generate(fullPrompt, config, false);
+        if(generationOptions.temperature != null){
+            builder.withTemp(generationOptions.temperature);
+        }
+
+        LLModel.GenerationConfig config = builder.build();
+
+        // Need better way than printing to standard output. Use logger instead.
+        if(llmDebugMode) System.out.print(fullPrompt);
+
+        String result =  llmodel.generate(fullPrompt, config, llmDebugMode);
+
+        if(llmDebugMode) System.out.println();
+
+        return result;
 
     }
 

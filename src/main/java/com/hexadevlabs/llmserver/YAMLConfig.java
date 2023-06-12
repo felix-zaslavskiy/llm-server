@@ -18,6 +18,7 @@ public class YAMLConfig {
 
     private  String modelBasePath;
 
-    // standard getters and setters
+    // Should print info about LLM input/outputs to standard output.
+    private Boolean llmDebugMode;
 
 }

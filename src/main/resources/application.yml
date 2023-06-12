@@ -3,3 +3,4 @@ logging:
     root: INFO
 modelFilename: "ggml-gpt4all-j-v1.3-groovy.bin"
 modelBasePath: "C:\\Users\\felix\\AppData\\Local\\nomic.ai\\GPT4All\\"
+llmDebugMode: true

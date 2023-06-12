@@ -26,8 +26,9 @@ public class Config {
         // Debut output format. In case you need it.
         // LLModel.OUTPUT_DEBUG=true;
 
-        return new LLModelService(getLLModel());
-
+        LLModelService llModelService = new LLModelService(getLLModel());
+        llModelService.setLlmDebugMode(yamlConfig.getLlmDebugMode());
+        return llModelService;
     }
 
     @Bean
