@@ -31,3 +31,7 @@ It is not clear how memory usage is impacted when multiple users will be using t
 
 ## Dev notes:
 Swagger and OpenAPI docs here https://springdoc.org/v2/#getting-started
+## TODO:
+* Dockerfile to build a docker image.
+* Implement Chat API
+* List models endpoint for convenience.
