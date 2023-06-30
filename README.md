@@ -18,7 +18,7 @@ Some ideas on what this may be used for:
 
 ## Getting Started
 After starting up the web server you may navigate for example to the 
-api endpoint to try things out http://localhost:8080/swagger-ui/index.htm
+api endpoint to try things out http://localhost:8080/swagger-ui/index.html
 
 
 ## Technical issues.
