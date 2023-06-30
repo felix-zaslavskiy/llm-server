@@ -9,6 +9,11 @@ import org.springframework.stereotype.Service;
 public class LLModelService {
 
     private boolean llmDebugMode;
+    private String modelLoaded;
+
+    public void setModelLoaded(String modelFilename) {
+        modelLoaded = modelFilename;
+    }
 
     public static class GenerationOptions {
         public Float temperature;
@@ -58,6 +63,10 @@ public class LLModelService {
 
         return result;
 
+    }
+
+    public String getModelInfo(){
+        return "Current model loaded is: " + modelLoaded;
     }
 
     @PreDestroy
