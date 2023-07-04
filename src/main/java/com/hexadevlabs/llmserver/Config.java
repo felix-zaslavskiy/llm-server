@@ -17,6 +17,7 @@ public class Config {
     LLModelService llModelService(){
         LLModelService llModelService = new LLModelService(getLLModel());
         llModelService.setLlmDebugMode(yamlConfig.getLlmDebugMode());
+        llModelService.setModelLoaded(yamlConfig.getModelFilename());
         return llModelService;
     }
 
