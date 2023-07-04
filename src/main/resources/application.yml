@@ -2,6 +2,6 @@ logging:
   level:
     root: INFO
 #modelFilename: "ggml-gpt4all-j-v1.3-groovy.bin"
-modelFilename: "ggml-replit-code-v1-3b.bin"
-modelBasePath: "C:\\Users\\felix\\AppData\\Local\\nomic.ai\\GPT4All\\"
+modelFilename: ${MODEL_FILE_NAME:"ggml-replit-code-v1-3b.bin"}
+modelBasePath: ${MODEL_BASE_PATH:"C:\\Users\\felix\\AppData\\Local\\nomic.ai\\GPT4All\\"}
 llmDebugMode: true
